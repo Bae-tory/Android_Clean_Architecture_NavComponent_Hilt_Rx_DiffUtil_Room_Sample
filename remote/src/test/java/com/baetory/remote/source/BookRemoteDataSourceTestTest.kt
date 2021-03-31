@@ -1,7 +1,7 @@
 package com.baetory.remote.source
 
 import com.baetory.data.exception.NetworkException
-import com.baetory.data.source.remote.QueryResultRemoteDataSource
+import com.baetory.data.source.remote.BookRemoteDataSource
 import com.baetory.remote.DataSourceTest
 import com.baetory.remote.api.BookApi
 import com.baetory.remote.mapper.book.BookResponseMapper
@@ -21,7 +21,7 @@ import retrofit2.HttpException
 import retrofit2.Response
 import kotlin.test.assertTrue
 
-class BookRemoteDataSourceTest : DataSourceTest() {
+class BookRemoteDataSourceTestTest : DataSourceTest() {
 
     @get:Rule
     val mockitoRule: MockitoRule = MockitoJUnit.rule().silent()
@@ -30,7 +30,7 @@ class BookRemoteDataSourceTest : DataSourceTest() {
     private lateinit var mockBookApi: BookApi
     private lateinit var mockWebServer: MockWebServer
     private lateinit var bookResponseMapper: BookResponseMapper
-    private lateinit var bookRemoteDataSource: QueryResultRemoteDataSource
+    private lateinit var bookRemoteDataSource: BookRemoteDataSource
 
     @Before
     override fun setup() {
@@ -40,7 +40,7 @@ class BookRemoteDataSourceTest : DataSourceTest() {
         mockWebServer.start()
 
         bookResponseMapper = BookResponseMapper()
-        bookRemoteDataSource = QueryResultRemoteDataSourceImpl(
+        bookRemoteDataSource = BookRemoteDataSourceImpl(
             bookResponseMapper = bookResponseMapper,
             bookApi = mockBookApi
         )
@@ -67,7 +67,7 @@ class BookRemoteDataSourceTest : DataSourceTest() {
             .`when`(mockBookApi)
             .queryBooksByTitle(anyString(), anyString(), anyInt())
 
-        QueryResultRemoteDataSourceImpl(
+        BookRemoteDataSourceImpl(
             bookApi = mockBookApi,
             bookResponseMapper = bookResponseMapper
         )
@@ -84,7 +84,7 @@ class BookRemoteDataSourceTest : DataSourceTest() {
             .`when`(mockBookApi)
             .queryBooksByTitle(anyString(), anyString(), anyInt())
 
-        QueryResultRemoteDataSourceImpl(
+        BookRemoteDataSourceImpl(
             bookApi = mockBookApi,
             bookResponseMapper = bookResponseMapper
         )
@@ -100,7 +100,7 @@ class BookRemoteDataSourceTest : DataSourceTest() {
             .`when`(mockBookApi)
             .queryBooksByTitle(anyString(), anyString(), anyInt())
 
-        QueryResultRemoteDataSourceImpl(
+        BookRemoteDataSourceImpl(
             bookApi = mockBookApi,
             bookResponseMapper = bookResponseMapper
         )

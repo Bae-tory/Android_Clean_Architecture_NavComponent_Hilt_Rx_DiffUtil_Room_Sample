@@ -1,7 +1,7 @@
 package com.baetory.remote.mapper.book
 
 import com.baetory.data.model.BookDataModel
-import com.baetory.data.model.BookPagingMetaDataModel
+import com.baetory.data.model.BookPagingKeyDataModel
 import com.baetory.data.model.BookSearchDataModel
 import com.baetory.remote.mapper.RemoteMapper
 import com.baetory.remote.model.book.BookSearchResponse
@@ -30,7 +30,7 @@ class BookResponseMapper @Inject constructor(
                         bookDetailUrl = it.bookDetailUrl
                     )
                 },
-            BookPagingMetaDataModel(
+            BookPagingKeyDataModel(
                 response.searchMetaData.isEnd,
                 response.searchMetaData.pageableCount,
                 response.searchMetaData.totalCount
